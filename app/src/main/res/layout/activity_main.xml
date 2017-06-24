@@ -59,7 +59,7 @@
         <ListView
             android:id="@+id/listView_results"
             style="@android:style/Widget.DeviceDefault.Light.ListView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"

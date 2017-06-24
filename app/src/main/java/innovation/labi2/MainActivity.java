@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
@@ -106,6 +107,7 @@ public class MainActivity extends Activity{
                 tv.setMaxLines(1);
                 tv.setHorizontallyScrolling(true);
                 tv.setHorizontalScrollBarEnabled(true);
+                //tv.getLayoutParams().width = ConstraintLayout.LayoutParams.WRAP_CONTENT;
                 //tv.setEllipsize(MARQUEE);
                 //tv.setMarqueeRepeatLimit(1000);
 

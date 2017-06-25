@@ -127,6 +127,11 @@ public class MainActivity extends Activity{
             }
         }
 
+        // If no matches
+        if (resultList.size() < 1) {
+            titleList.add("Keine Ergebnisse gefunden, bitte geben Sie ein anderes Keyword ein.");
+        }
+
         titleList = expandListRow(titleList);
         listView.setAdapter(adapter);
 
@@ -156,7 +161,7 @@ public class MainActivity extends Activity{
     public ArrayList<String> expandListRow(ArrayList<String> list) {
 
         int rowSize = 0;
-        String rowContent = "";
+        String rowContent;
         String blankFill = "";
 
         for (int i = 0; i < list.size(); i++) {

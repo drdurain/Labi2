@@ -3,8 +3,8 @@ package innovation.labi2;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
@@ -19,20 +19,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import static android.text.TextUtils.TruncateAt.END;
-import static android.text.TextUtils.TruncateAt.MARQUEE;
 
 
 public class MainActivity extends Activity{
 
 
 
-    private EditText editText; //textfield
+    private EditText editText;
     private Button btn_Search;
     private ListView listView;
     private ArrayList<Poster> dbList = new ArrayList<>();
@@ -107,6 +104,7 @@ public class MainActivity extends Activity{
                 tv.setMaxLines(1);
                 tv.setHorizontallyScrolling(true);
                 tv.setHorizontalScrollBarEnabled(true);
+                tv.setTypeface(Typeface.MONOSPACE);
                 //tv.getLayoutParams().width = ConstraintLayout.LayoutParams.WRAP_CONTENT;
                 //tv.setEllipsize(MARQUEE);
                 //tv.setMarqueeRepeatLimit(1000);
@@ -129,6 +127,7 @@ public class MainActivity extends Activity{
             }
         }
 
+        titleList = expandListRow(titleList);
         listView.setAdapter(adapter);
 
         // Hide keyboard after pressing Suchen
@@ -150,6 +149,33 @@ public class MainActivity extends Activity{
         });
 
 
+    }
+
+
+
+    public ArrayList<String> expandListRow(ArrayList<String> list) {
+
+        int rowSize = 0;
+        String rowContent = "";
+        String blankFill = "";
+
+        for (int i = 0; i < list.size(); i++) {
+            if (rowSize < list.get(i).length()) {
+                rowSize = list.get(i).length();
+            }
+        }
+
+        if (rowSize > list.get(0).length()) {
+
+            for (int i = 0; i < (rowSize-list.get(0).length()); i++) {
+                blankFill += " ";
+            }
+
+            rowContent = list.get(0) + blankFill;
+            list.set(0,rowContent);
+        }
+
+        return list;
     }
 
 

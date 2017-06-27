@@ -149,7 +149,7 @@ public class MainActivity extends Activity{
                 Intent intent = new Intent(view.getContext(),DisplayActivity.class);
                 intent.putExtra("result", resultList.get(position));
                 startActivity(intent);
-                Toast.makeText(getApplicationContext(), "Click ListItem Number " + position, Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "Click ListItem Number " + position, Toast.LENGTH_LONG).show();
             }
         });
 
